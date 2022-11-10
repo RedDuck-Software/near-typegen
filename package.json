@@ -3,15 +3,21 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "workspaces": ["core", "abigen", "typegen"],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "run-s format:*",
     "lint": "run-s lint:*",
-    "format:abigen" : "cd abigen && npm run format",
-    "lint:abigen" : "cd abigen && npm run lint",
-    "format:typegen" : "cd typegen && npm run format",
-    "lint:typegen" : "cd typegen && npm run lint"
+    "format:abigen" : "cd packages/abigen && npm run format",
+    "lint:abigen" : "cd packages/abigen && npm run lint",
+    "format:typegen" : "cd packages/typegen && npm run format",
+    "lint:typegen" : "cd packages/typegen && npm run lint",
+    "format:core" : "cd packages/core && npm run format",
+    "lint:core" : "cd packages/core && npm run lint"
   },
   "repository": {
     "type": "git",

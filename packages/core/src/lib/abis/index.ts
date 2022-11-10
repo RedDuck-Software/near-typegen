@@ -7,7 +7,7 @@ export const isPrimitive = (type: PrimitiveType | NearFunctionArg) => {
 export type PrimitiveType = 'string' | 'number' | 'boolean' | 'void' | 'unknown';
 
 export type NearFunctionType = {
-  name: string;
+  name?: string;
   isArray?: boolean;
   isOptional?: boolean;
   type: PrimitiveType | NearFunctionArg;

@@ -1,12 +1,12 @@
 {
-  "name": "@neargen-js/typegen",
+  "name": "@neargen-js/abigen",
   "author": "RedDuck Software",
   "version": "0.0.1-dev",
   "types": "dist/index.d.ts",
-  "description": "",
+  "description": "Abi generator package for NEAR",
   "main": "dist/index.js",
   "bin": {
-    "neargenjs-typegen": "./dist/main.js"
+    "neargenjs-abigen": "./dist/main.js"
   },
   "files": [
     "dist/**/*"
@@ -22,16 +22,20 @@
   },
   "keywords": [
     "Near",
-    "types",
+    "abis",
     "TypeChain"
   ],
   "license": "ISC",
   "dependencies": {
     "commander": "^9.4.1",
+    "dirty-json": "^0.9.2",
     "glob": "^8.0.3",
+    "jsonrepair": "^2.2.1",
     "listr": "^0.14.3",
-    "near-api-js": "^1.1.0",
-    "uppercamelcase": "^3.0.0"
+    "near-sdk-js": "^0.6.0",
+    "ts-morph": "^16.0.0",
+    "uppercamelcase": "^3.0.0",
+    "@neargen-js/core": "*"
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.1",

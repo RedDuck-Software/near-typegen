@@ -1,0 +1,25 @@
+{
+  "name": "@neargen-js/core",
+  "author": "RedDuck Software",
+  "version": "0.0.1-dev",
+  "types": "dist/index.d.ts",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint . --ext .ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint"
+  },
+  "keywords": [
+    "Near",
+    "types",
+    "TypeChain"
+  ],
+  "license": "ISC"
+}

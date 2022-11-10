@@ -5,7 +5,7 @@ import {
   NearFunctionType,
   NearFunctionView,
   PrimitiveType,
-} from 'lib/abi';
+} from '@neargen-js/core';
 import { writeFile } from '../utils';
 import path from 'path';
 import { ClassDeclaration, MethodDeclarationStructure, OptionalKind, Project, SourceFile, ts, Type } from 'ts-morph';
@@ -117,6 +117,7 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
       isArray,
       isOptional: false,
       type: (isArray ? type.getArrayElementTypeOrThrow().getText() : type.getText()) as PrimitiveType,
+      name: 'return'
     };
   }
 
