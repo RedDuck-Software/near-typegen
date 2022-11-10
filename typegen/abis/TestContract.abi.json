@@ -1,0 +1,52 @@
+{
+    "contractName": "TestContract1",
+    "methods": {
+        "call": [
+            {
+                "name": "test_call_method",
+                "isPayable": true,
+                "isPrivate": false,
+                "args": {
+                    "isArray": false,
+                    "type": {
+                        "val1": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "string"
+                        },
+                        "val2": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        ],
+        "view": [
+            {
+                "name": "test_view_method",
+                "args": {
+                    "isArray": false,
+                    "type": {
+                        "a": {
+                            "isArray": true,
+                            "isOptional": false,
+                            "type": "string"
+                        }
+                    }
+                },
+                "returnType": {
+                    "isArray": true,
+                    "type": {
+                        "a": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

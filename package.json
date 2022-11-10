@@ -1,5 +1,5 @@
 {
-  "name": "neargen",
+  "name": "neargen-js",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,9 @@
     "format": "run-s format:*",
     "lint": "run-s lint:*",
     "format:abigen" : "cd abigen && npm run format",
-    "lint:abigen" : "cd abigen && npm run lint"
+    "lint:abigen" : "cd abigen && npm run lint",
+    "format:typegen" : "cd typegen && npm run format",
+    "lint:typegen" : "cd typegen && npm run lint"
   },
   "repository": {
     "type": "git",
