@@ -21,9 +21,13 @@
     "prepublishOnly": "npm test && npm run lint"
   },
   "keywords": [
-    "Near",
-    "types",
-    "TypeChain"
+    "near",
+    "abis",
+    "abi",
+    "neargen",
+    "abigen",
+    "typechain",
+    "types"
   ],
   "license": "ISC",
   "dependencies": {

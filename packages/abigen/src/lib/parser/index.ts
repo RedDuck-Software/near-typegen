@@ -43,7 +43,7 @@ const parseNearFunctionCall = (
         name: fnName,
         isPayable: Boolean(decoratorObject.payableFunction),
         isPrivate: Boolean(decoratorObject.privateFunction),
-        args:  fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }), ) : undefined,
+        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }), ) : undefined,
       };
     }) ?? []
   );
@@ -62,7 +62,7 @@ const parseNearFunctionView = (
 
       return {
         name: fnName,
-        args: fnArgs?.reduce((prev, curr) => ({ ...prev, ...curr })) ?? {},
+        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }), ) : undefined,
         returnType: toObjectType(returnType),
       };
     }) ?? []
