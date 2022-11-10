@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RedDuck-Software/near-generators.git"
+    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RedDuck-Software/near-generators-js/issues"
+    "url": "https://github.com/RedDuck-Software/neargen-js/issues"
   },
-  "homepage": "https://github.com/RedDuck-Software/near-generators-js#readme",
+  "homepage": "https://github.com/RedDuck-Software/neargen-js#readme",
   "dependencies": {
     "prettier": "^2.7.1"
   },
