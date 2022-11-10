@@ -6,7 +6,7 @@ import {
   NearFunctionView,
   PrimitiveType,
 } from '@neargen-js/core';
-import { writeFile } from '../utils';
+import { writeFile } from '@neargen-js/core';
 import path from 'path';
 import { ClassDeclaration, MethodDeclarationStructure, OptionalKind, Project, SourceFile, ts, Type } from 'ts-morph';
 

@@ -1,6 +1,6 @@
 import path from 'path';
-import { parseAbi } from '../abis';
-import { getFilePathesByGlob, prettifyCode, readFile, writeFile } from '../utils';
+import { parseAbi } from '@neargen-js/core';
+import { getFilePathesByGlob, prettifyCode, readFile, writeFile } from '@neargen-js/core';
 import { getContractTypeDefinition } from './templates/contract';
 import { getFullDefinitionFromAbi } from './templates/definition';
 import { getViewFunctionDefinition } from './templates/functions';

@@ -5,7 +5,7 @@ import {
   NearFunctionType,
   NearFunctionView,
   PrimitiveType,
-} from '../../abis';
+} from '@neargen-js/core';
 import camelCase from 'uppercamelcase';
 import { CallOverrides, CallOverridesPayable, NearContract } from '../../types';
 
