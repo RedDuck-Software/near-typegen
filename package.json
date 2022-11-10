@@ -1,0 +1,37 @@
+{
+  "name": "neargen",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "workspaces": ["core", "abigen", "typegen"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "run-s format:*",
+    "lint": "run-s lint:*",
+    "format:abigen" : "cd abigen && npm run format",
+    "lint:abigen" : "cd abigen && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedDuck-Software/near-generators.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RedDuck-Software/near-generators-js/issues"
+  },
+  "homepage": "https://github.com/RedDuck-Software/near-generators-js#readme",
+  "dependencies": {
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/prettier": "^2.7.1",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.27.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4",
+    "npm-run-all": "^4.1.5"
+  }
+}
