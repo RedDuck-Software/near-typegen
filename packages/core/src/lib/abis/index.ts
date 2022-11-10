@@ -19,7 +19,7 @@ export type NearFunctionArg = {
 
 type NearFunctionBase = {
   name: string;
-  args: NearFunctionType;
+  args?: NearFunctionType;
 };
 
 export type NearFunctionView = {

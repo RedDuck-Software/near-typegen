@@ -8,7 +8,6 @@ const program = new Command();
 program.name('Near TypeChain utility').description('Near TypeChain utility').version('0.0.1-dev');
 
 program
-  .command('generate')
   .description('Generates Typescript entities from a given contract ABIs')
   .option('-a, --abis <item>', 'abis blob path', DEFAULT_ABIS_PATH)
   .option('-o, --output <item>', 'generated entities output folder path', DEFAULT_OUTPUT_PATH)

@@ -65,6 +65,8 @@ const convertTypeToString = (type: NearFunctionArg | NearFunctionType | Primitiv
   }
 };
 const covertArgsToTypeString = (typeName: string, func: NearFunctionView) => {
+  if (!func.args) throw 'Invalid args type';
+  
   const typeBody = convertTypeToString(func.args);
   const fullType = `type ${typeName} = ${typeBody}`;
   return fullType;
