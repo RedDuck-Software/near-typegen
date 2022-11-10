@@ -16,7 +16,7 @@ export const writeFile = (filePath: string, data: string) => {
 
 export const getFilePathesByGlob = async (globPattern: string) => {
   return new Promise<string[]>((resolve, reject) => {
-    glob(globPattern, { fs }, function (error: any, files: string[]) {
+    glob(globPattern, { fs }, function (error: Error | null, files: string[]) {
       if (error) reject(error);
       resolve(files);
     });

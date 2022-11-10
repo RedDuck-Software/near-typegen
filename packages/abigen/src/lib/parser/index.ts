@@ -117,7 +117,7 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
       isArray,
       isOptional: false,
       type: (isArray ? type.getArrayElementTypeOrThrow().getText() : type.getText()) as PrimitiveType,
-      name: 'return'
+      name: 'return',
     };
   }
 
@@ -170,7 +170,7 @@ export const parseTsFile = async ({ tsFilesPath, abisOutputPath }: { tsFilesPath
   for (const file of files) {
     const abis = getAbisFromFile(file);
 
-    for (let abi of abis) {
+    for (const abi of abis) {
       if (contractsAbis.find((a) => a.contractName === abi.contractName))
         throw `Duplicated contract name: ${abi.contractName}`;
 
