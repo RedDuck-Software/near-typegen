@@ -45,7 +45,7 @@ const _getCallFunctions = (functions: CallFunctionDefinition[], isPrivate: boole
           overrides,
           args: ${_getFunctionArgs(f)}
       })
-  }`;
+  }${isPrivate ? ',' : ''}`;
     })
     .join('\n');
 };
@@ -87,7 +87,6 @@ ${
   })()
 }
 
-
 }`;
 };
 
@@ -109,10 +108,3 @@ export const getContractTypeDefinition = (abi: NearContractAbi): ContractTypeDef
     bytecode: abi.byteCode,
   };
 };
-
-
-class T { 
-  privateCall = {
-    a() {}
-  }
-}

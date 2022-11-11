@@ -32,8 +32,8 @@ const parseNearFunctionCall = (
         .getParameters()
         ?.map((p) => toObjectType(p.getType()));
 
-      let isPayable: boolean = false;
-      let isPrivate: boolean = true;
+      let isPayable = false;
+      let isPrivate = true;
 
       if (!isInitializer) {
         const decorator = method.decorators?.find((d) => d.name === 'call');
@@ -112,6 +112,12 @@ const getAbisFromFile = (file: SourceFile) => {
     .filter((abi) => abi) as NearContractAbi[];
 };
 
+const getPrimitiveType = (type: Type) => {
+  let t = (type.getText()).trim();
+  if(t === 'bigint') t = 'string';
+  return t as PrimitiveType;
+}
+
 const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFunctionType => {
   let type: Type<ts.Type>;
 
@@ -124,11 +130,15 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
 
   const isArray = type.isArray();
 
+  if(isArray) {
+    type = type.getArrayElementTypeOrThrow();
+  }
+
   if (!type.isObject() || (isArray && !type.getArrayElementTypeOrThrow().isObject())) {
     return {
       isArray,
       isOptional: false,
-      type: (isArray ? type.getArrayElementTypeOrThrow().getText() : type.getText()) as PrimitiveType,
+      type: getPrimitiveType(type),
       name: 'return',
     };
   }
@@ -152,7 +162,7 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
       if (type.isObject()) {
         returnType = toObjectType(type, file);
       } else {
-        returnType = type.getText() as PrimitiveType;
+        returnType = getPrimitiveType(type);
       }
 
       const name = curr.getName();
