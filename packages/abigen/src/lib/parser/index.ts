@@ -22,6 +22,7 @@ type CallDecoratorArgs = {
 const parseNearFunctionCall = (
   methods: OptionalKind<MethodDeclarationStructure>[] | undefined,
   classDeclaration: ClassDeclaration,
+  isInitializer?: boolean
 ): NearFunctionCall[] => {
   return (
     methods?.map((method) => {
@@ -31,19 +32,28 @@ const parseNearFunctionCall = (
         .getParameters()
         ?.map((p) => toObjectType(p.getType()));
 
-      const decorator = method.decorators?.find((d) => d.name === 'call');
+      let isPayable: boolean = false;
+      let isPrivate: boolean = true;
 
-      if (!decorator?.arguments) throw 'Missing call decorator';
+      if (!isInitializer) {
+        const decorator = method.decorators?.find((d) => d.name === 'call');
 
-      const decoratorObject = stringTypeToObject<CallDecoratorArgs>(
-        (decorator.arguments as string[])[0].toString() ?? '',
-      );
+        if (!decorator?.arguments) throw 'Missing call decorator';
+
+        const decoratorObject = stringTypeToObject<CallDecoratorArgs>(
+          (decorator.arguments as string[])[0].toString() ?? '',
+        );
+
+        isPayable = Boolean(decoratorObject.payableFunction);
+        isPrivate = Boolean(decoratorObject.privateFunction);
+      }
 
       return {
         name: fnName,
-        isPayable: Boolean(decoratorObject.payableFunction),
-        isPrivate: Boolean(decoratorObject.privateFunction),
-        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }), ) : undefined,
+        isPayable,
+        isPrivate,
+        isInitializer,
+        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }),) : undefined,
       };
     }) ?? []
   );
@@ -62,7 +72,7 @@ const parseNearFunctionView = (
 
       return {
         name: fnName,
-        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }), ) : undefined,
+        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }),) : undefined,
         returnType: toObjectType(returnType),
       };
     }) ?? []
@@ -83,14 +93,16 @@ const getAbisFromFile = (file: SourceFile) => {
 
       const viewMethods = methods?.filter((m) => m.decorators?.find((d) => d.name === 'view'));
       const callMethods = methods?.filter((m) => m.decorators?.find((d) => d.name === 'call'));
+      const initializerMethod = methods?.find((m) => m.decorators?.find((d) => d.name === 'initialize'));
 
       const callMethodsParsed = parseNearFunctionCall(callMethods, classDeclaration);
       const viewMethodsParsed = parseNearFunctionView(viewMethods, classDeclaration);
+      const initializerParsed = initializerMethod ? parseNearFunctionCall([initializerMethod], classDeclaration, true)[0] : undefined;
 
       const abi = {
         contractName: name,
         methods: {
-          call: callMethodsParsed,
+          call: initializerParsed ? [...callMethodsParsed, initializerParsed] : callMethodsParsed,
           view: viewMethodsParsed,
         },
       } as NearContractAbi;

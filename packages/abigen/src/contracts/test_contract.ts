@@ -1,4 +1,4 @@
-import { NearBindgen, near, call, view, Vector, NearPromise, assert } from 'near-sdk-js';
+import { NearBindgen, near, call, view, Vector, NearPromise, assert, initialize } from 'near-sdk-js';
 
 export type SomeInnerType = {
   val1: string[];
@@ -12,6 +12,12 @@ export type SomeType = {
 
 @NearBindgen({})
 export class TestContract {
+  
+  @initialize({})
+  test_initializer_method({ a }: { a: string }): { r: number } {
+    return { r: 0 };
+  }
+
   @call({ payableFunction: true })
   test_call_method({ val1 }: { val1: string; val2: number }) {
     return {
