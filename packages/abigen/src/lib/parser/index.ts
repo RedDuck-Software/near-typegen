@@ -1,4 +1,5 @@
 import {
+  isPrimitive,
   NearContractAbi,
   NearFunctionArg,
   NearFunctionCall,
@@ -114,8 +115,9 @@ const getAbisFromFile = (file: SourceFile) => {
 
 const getPrimitiveType = (type: Type) => {
   let t = (type.getText()).trim();
-  if(t === 'bigint') t = 'string';
-  if(t === 'any') t = 'unknown';
+  if (t === 'bigint') t = 'string';
+  if (t === 'any') t = 'unknown';
+  if(!isPrimitive(t as PrimitiveType)) t = 'unknown';
   return t as PrimitiveType;
 }
 
@@ -131,11 +133,11 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
 
   const isArray = type.isArray();
 
-  if(isArray) {
+  if (isArray) {
     type = type.getArrayElementTypeOrThrow();
   }
 
-  if (!type.isObject() || (isArray && !type.getArrayElementTypeOrThrow().isObject())) {
+  if (!type.isObject() && !type.isClass()) {
     return {
       isArray,
       isOptional: false,
@@ -153,6 +155,8 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
       const isArray = type.isArray();
       const isOptional = curr.isOptional();
 
+      const name = curr.getName();
+
       if (isArray) {
         type = type.getArrayElementTypeOrThrow();
       }
@@ -164,8 +168,6 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
       } else {
         returnType = getPrimitiveType(type);
       }
-
-      const name = curr.getName();
 
       return {
         ...prev,

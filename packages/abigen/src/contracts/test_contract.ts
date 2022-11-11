@@ -10,6 +10,17 @@ export type SomeType = {
   someValNested: SomeInnerType[];
 };
 
+export class SomeClass {
+  public testField:string
+  approved_account_ids: { [accountId: string]: number } = {};
+
+  constructor(
+    testField: string
+  ){
+    this.testField = testField
+  }
+}
+
 @NearBindgen({})
 export class TestContract {
   
@@ -46,4 +57,8 @@ export class TestContract {
     return { r: 0 };
   }
 
+  @view({})
+  test_view_with_class(): SomeClass[] {
+    return [new SomeClass('')];
+  }
 }
