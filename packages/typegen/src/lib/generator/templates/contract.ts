@@ -23,7 +23,7 @@ const _getFunctionArgs = (f: FunctionDefinitionBase) => {
 const _getViewFunctions = (functions: ViewFunctionDefinition[]) => {
   return functions
     .map((f) => {
-      return `public ${f.signature} {
+      return `public ${f.fnName}${f.signature} {
       return this.functionView<${f?.argsType?.name ?? 'object'}, ${f.returnType.name}${
         f.returnType.isArray && f.returnType.name !== 'void' ? '[]' : ''
       }>({
@@ -35,10 +35,11 @@ const _getViewFunctions = (functions: ViewFunctionDefinition[]) => {
     .join('\n');
 };
 
-const _getCallFunctions = (functions: CallFunctionDefinition[]) => {
-  return functions
+const _getCallFunctions = (functions: CallFunctionDefinition[], isPrivate: boolean) => {
+  return functions.filter(f=>f.isPrivate === isPrivate)
     .map((f) => {
-      return `public ${f.signature} {
+      return `${isPrivate ? `${f.fnName}: async ${f.signature} => ` : `public async ${f.fnName}${f.signature}`}  {
+      ${isPrivate ? `assert(this.signer?.accountId === this.contractId, 'Signer is not a contract');` : ''}
       return this.functionCall<${f?.argsType?.name ?? 'object'}>({
           methodName: '${f.contractMethodName}',
           overrides,
@@ -72,7 +73,20 @@ public connect(account: Account): ${contractName} {
   
 ${_getViewFunctions(viewFunctions)}
 
-${_getCallFunctions(callFunctions)}
+${_getCallFunctions(callFunctions, false)}
+
+
+${
+  (()=>{
+    if(callFunctions.filter(v=>v.isPrivate === true).length)
+      return `
+        public privateCall = {
+          ${_getCallFunctions(callFunctions, true)}
+        }`
+    else return ''
+  })()
+}
+
 
 }`;
 };
@@ -95,3 +109,10 @@ export const getContractTypeDefinition = (abi: NearContractAbi): ContractTypeDef
     bytecode: abi.byteCode,
   };
 };
+
+
+class T { 
+  privateCall = {
+    a() {}
+  }
+}

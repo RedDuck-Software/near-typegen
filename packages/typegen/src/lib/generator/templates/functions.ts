@@ -17,6 +17,7 @@ type StringType = {
 
 export type FunctionDefinitionBase = {
   signature: string;
+  fnName: string,
   contractMethodName: string;
   argsType?: StringType;
   hasArgs: boolean;
@@ -32,6 +33,8 @@ export type ViewFunctionDefinition = {
 
 export type CallFunctionDefinition = {
   isPayable: boolean;
+  isPrivate: boolean;
+  isInitializer: boolean;
 } & FunctionDefinitionBase;
 
 const getTypeNameFromFunc = (name: string) => {
@@ -89,15 +92,20 @@ const getViewFunctionSignature = (
   returnTypeName: string,
   returnIsArray: boolean,
 ) => {
-  return `async ${fnName}(${signatureArgToString(argTypeName)}): Promise<${returnTypeName}${
+  return {
+    name: fnName,
+    signature:  `(${signatureArgToString(argTypeName)}): Promise<${returnTypeName}${
     returnIsArray && returnTypeName !== 'void' ? '[]' : ''
-  }>`;
+  }>`};
 };
 
 const getCallFunctionSignature = (fnName: string, argTypeName: string | undefined, isPayable: boolean) => {
-  return `async ${fnName}(${signatureArgToString(argTypeName)}${argTypeName ? ',' : ''} overrides?: ${
+  return {
+    name: fnName,
+    signature:`(${signatureArgToString(argTypeName)}${argTypeName ? ',' : ''} overrides?: ${
     CallOverrides.name
-  }${isPayable ? ` & ${CallOverridesPayable.name}` : ''}): Promise<FinalExecutionOutcome>`;
+  }${isPayable ? ` & ${CallOverridesPayable.name}` : ''}): Promise<FinalExecutionOutcome>`
+};
 };
 
 export const getViewFunctionDefinition = (func: NearFunctionView): ViewFunctionDefinition => {
@@ -124,7 +132,8 @@ export const getViewFunctionDefinition = (func: NearFunctionView): ViewFunctionD
     : covertReturnTypeToTypeString(resultTypeName, func);
 
   return {
-    signature: funcSignature,
+    signature: funcSignature.signature,
+    fnName: funcSignature.name,
     contractMethodName: func.name,
     hasArgs,
     argsType: argsType
@@ -150,9 +159,12 @@ export const getCallFunctionDefinition = (func: NearFunctionCall): CallFunctionD
 
   return {
     isPayable: func.isPayable,
-    signature: funcSignature,
+    signature: funcSignature.signature,
+    fnName: funcSignature.name,
     contractMethodName: func.name,
     hasArgs,
+    isInitializer: Boolean(func.isInitializer),
+    isPrivate:  Boolean(func.isPrivate),
     argsType: argsType
       ? {
           name: argsTypeName as string,

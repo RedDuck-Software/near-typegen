@@ -5,7 +5,41 @@
             {
                 "name": "test_call_method",
                 "isPayable": true,
-                "isPrivate": false
+                "isPrivate": false,
+                "args": {
+                    "isArray": false,
+                    "type": {
+                        "val1": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "string",
+                            "name": "val1"
+                        },
+                        "val2": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "number",
+                            "name": "val2"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "test_initializer_method",
+                "isPayable": false,
+                "isPrivate": true,
+                "isInitializer": true,
+                "args": {
+                    "isArray": false,
+                    "type": {
+                        "a": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "string",
+                            "name": "a"
+                        }
+                    }
+                }
             }
         ],
         "view": [
