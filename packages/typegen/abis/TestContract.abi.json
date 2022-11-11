@@ -3,7 +3,12 @@
     "methods": {
         "call": [
             {
-                "name": "test_call_method",
+                "name": "test_call_method_private1",
+                "isPayable": false,
+                "isPrivate": true
+            },
+            {
+                "name": "test_call_method_private2",
                 "isPayable": true,
                 "isPrivate": false,
                 "args": {

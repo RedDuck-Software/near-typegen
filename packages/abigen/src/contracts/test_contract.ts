@@ -18,8 +18,20 @@ export class TestContract {
     return { r: 0 };
   }
 
+
+  @call({ privateFunction: true })
+  test_call_method_private1() {
+    return {
+      someVal: '',
+      someValNested: {
+        val2: 123,
+        val1: '',
+      },
+    };
+  }
+
   @call({ payableFunction: true })
-  test_call_method({ val1 }: { val1: string; val2: number }) {
+  test_call_method_private2({ val1 }: { val1: string; val2: number }) {
     return {
       someVal: '',
       someValNested: {
@@ -33,4 +45,5 @@ export class TestContract {
   test_view_method({ a }: { a: string }): { r: number } {
     return { r: 0 };
   }
+
 }

@@ -115,6 +115,7 @@ const getAbisFromFile = (file: SourceFile) => {
 const getPrimitiveType = (type: Type) => {
   let t = (type.getText()).trim();
   if(t === 'bigint') t = 'string';
+  if(t === 'any') t = 'unknown';
   return t as PrimitiveType;
 }
 
@@ -144,11 +145,10 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
   }
 
   const properties = type.getProperties();
-
   return {
     isArray,
     type: properties.reduce((prev, curr) => {
-      let type: Type<ts.Type> = curr.getValueDeclarationOrThrow().getType();
+      let type: Type<ts.Type> = curr.getDeclaredType();
 
       const isArray = type.isArray();
       const isOptional = curr.isOptional();
