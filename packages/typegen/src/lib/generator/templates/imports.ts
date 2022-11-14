@@ -12,7 +12,7 @@ export const generateIndexFile = (contractFileNames: string[]) => {
     })
     .join('\n');
 
-  const exports = `export {${contractFileNames.join('\n')} }` 
+  const exports = `export {${contractFileNames.join(',\n')} }` 
 
-  return [imports, exports].join('\n');
+  return [imports, exports].join('\n\n');
 };
