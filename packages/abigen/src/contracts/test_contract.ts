@@ -72,4 +72,9 @@ export class TestContract {
   test_view_with_primitive_return_arr(): string[] {
     return [];
   }
+
+  @view({})
+  test_view_with_primitive_input(t: string) {
+    
+  }
 }
