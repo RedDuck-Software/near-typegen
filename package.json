@@ -28,7 +28,7 @@
     "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
   },
   "author": "RedDuck Software",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/RedDuck-Software/neargen-js/issues"
   },

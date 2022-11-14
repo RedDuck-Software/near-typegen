@@ -21,7 +21,6 @@ yarn global add @neargen-js/typegen
 npm install -g @neargen-js/typegen
 ```
 
-
 ## How to Use It?
 
 ```
