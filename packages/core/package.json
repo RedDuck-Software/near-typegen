@@ -5,6 +5,18 @@
   "types": "dist/index.d.ts",
   "description": "",
   "main": "dist/index.js",
+  "keywords": [
+    "near",
+    "types",
+    "core",
+    "near-gen"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
+  },
   "files": [
     "dist/**/*"
   ],
@@ -15,12 +27,5 @@
     "lint": "eslint . --ext .ts",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint"
-  },
-  "keywords": [
-    "near",
-    "types",
-    "core",
-    "near-gen"
-  ],
-  "license": "ISC"
+  }
 }

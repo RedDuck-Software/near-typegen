@@ -3,23 +3,8 @@
   "author": "RedDuck Software",
   "version": "0.0.10-dev",
   "types": "dist/index.d.ts",
-  "description": "Abi generator package for NEAR",
+  "description": "Abi generator package for NEAR contracts written in TypeScript",
   "main": "dist/index.js",
-  "bin": {
-    "neargenjs-abigen": "./dist/main.js"
-  },
-  "files": [
-    "dist/**/*"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\"",
-    "start": "ts-node ./src/main.ts",
-    "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint . --ext .ts",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint"
-  },
   "keywords": [
     "near",
     "abis",
@@ -30,6 +15,22 @@
     "types"
   ],
   "license": "ISC",
+  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/abigen",
+  "files": [
+    "dist/**/*"
+  ],
+  "bin": {
+    "neargenjs-abigen": "./dist/main.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "start": "ts-node ./src/main.ts",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint . --ext .ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint"
+  },
   "dependencies": {
     "commander": "^9.4.1",
     "glob": "^8.0.3",
@@ -43,5 +44,9 @@
     "@types/commander": "^2.12.2",
     "@types/glob": "^8.0.0",
     "@types/uppercamelcase": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
   }
 }

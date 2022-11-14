@@ -1,25 +1,10 @@
 {
   "name": "@neargen-js/typegen",
   "author": "RedDuck Software",
-  "version": "0.0.6-dev",
+  "version": "0.0.7-dev",
   "types": "dist/index.d.ts",
-  "description": "",
+  "description": "TypeScript Type definitions generator package for NEAR smart contracts",
   "main": "dist/index.js",
-  "bin": {
-    "neargenjs-typegen": "./dist/main.js"
-  },
-  "files": [
-    "dist/**/*"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\"",
-    "start": "ts-node ./src/main.ts",
-    "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint ./src/ --ext .ts",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint"
-  },
   "keywords": [
     "near",
     "abis",
@@ -32,6 +17,26 @@
     "typegen"
   ],
   "license": "ISC",
+  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/typegen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "bin": {
+    "neargenjs-typegen": "./dist/main.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "start": "ts-node ./src/main.ts",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint ./src/ --ext .ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint"
+  },
   "dependencies": {
     "commander": "^9.4.1",
     "glob": "^8.0.3",
