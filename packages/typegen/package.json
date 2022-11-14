@@ -16,7 +16,7 @@
     "types",
     "typegen"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/typegen",
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.1",
-    "@types/commander": "^2.12.2",
     "@types/glob": "^8.0.0",
     "@types/uppercamelcase": "^3.0.0"
   }

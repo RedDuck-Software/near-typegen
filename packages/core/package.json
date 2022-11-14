@@ -11,7 +11,7 @@
     "core",
     "near-gen"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/core",
   "repository": {
     "type": "git",
