@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/typegen",
   "author": "RedDuck Software",
-  "version": "0.0.3-dev",
+  "version": "0.0.4-dev",
   "types": "dist/index.d.ts",
   "description": "",
   "main": "dist/index.js",

@@ -61,4 +61,15 @@ export class TestContract {
   test_view_with_class(): SomeClass[] {
     return [new SomeClass('')];
   }
+
+  @view({})
+  test_view_with_primitive_return(): string {
+    return '';
+  }
+
+
+  @view({})
+  test_view_with_primitive_return_arr(): string[] {
+    return [];
+  }
 }

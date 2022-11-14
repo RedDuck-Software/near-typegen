@@ -1,5 +1,6 @@
 import {
   isPrimitive,
+  NearContractAbi,
   NearFunctionArg,
   NearFunctionCall,
   NearFunctionType,
@@ -42,12 +43,12 @@ const getTypeNameFromFunc = (name: string) => {
   return result;
 };
 
-const getInputTypeNameFromFunc = (name: string) => {
-  return getTypeNameFromFunc(name) + 'Input';
+const getInputTypeNameFromFunc = ( contractName: string,fnName: string) => {
+  return camelCase(contractName) +  getTypeNameFromFunc(fnName) + 'Input';
 };
 
-const getReturnTypeNameFromFunc = (name: string) => {
-  return getTypeNameFromFunc(name) + 'Return';
+const getReturnTypeNameFromFunc = (contractName: string, fnName: string) => {
+  return camelCase(contractName) + getTypeNameFromFunc(fnName) + 'Return';
 };
 
 const convertTypeToString = (type: NearFunctionArg | NearFunctionType | PrimitiveType): string => {
@@ -108,16 +109,16 @@ const getCallFunctionSignature = (fnName: string, argTypeName: string | undefine
 };
 };
 
-export const getViewFunctionDefinition = (func: NearFunctionView): ViewFunctionDefinition => {
+export const getViewFunctionDefinition = (abi:NearContractAbi, func: NearFunctionView): ViewFunctionDefinition => {
   let resultTypeName: string;
 
   if (func?.returnType?.type) {
     if (isPrimitive(func?.returnType?.type)) resultTypeName = func?.returnType?.type as string;
-    else resultTypeName = getReturnTypeNameFromFunc(func.name);
+    else resultTypeName = getReturnTypeNameFromFunc(abi.contractName, func.name);
   } else resultTypeName = 'unknown';
 
   const hasArgs = Boolean(Object.keys(func.args?.type ?? {})?.length);
-  const argsTypeName = hasArgs ? getInputTypeNameFromFunc(func.name) : undefined;
+  const argsTypeName = hasArgs ? getInputTypeNameFromFunc(abi.contractName, func.name) : undefined;
 
   const argsType = hasArgs ? covertArgsToTypeString(argsTypeName ?? '', func) : undefined;
   const funcSignature = getViewFunctionSignature(
@@ -150,10 +151,10 @@ export const getViewFunctionDefinition = (func: NearFunctionView): ViewFunctionD
   };
 };
 
-export const getCallFunctionDefinition = (func: NearFunctionCall): CallFunctionDefinition => {
+export const getCallFunctionDefinition = (abi:NearContractAbi,func: NearFunctionCall): CallFunctionDefinition => {
   const hasArgs = Boolean(Object.keys(func.args?.type ?? {})?.length);
 
-  const argsTypeName = hasArgs ? getInputTypeNameFromFunc(func.name) : undefined;
+  const argsTypeName = hasArgs ? getInputTypeNameFromFunc(abi.contractName, func.name) : undefined;
   const argsType = hasArgs ? covertArgsToTypeString(argsTypeName ?? '', func) : undefined;
   const funcSignature = getCallFunctionSignature(func.name, argsTypeName, func.isPayable);
 

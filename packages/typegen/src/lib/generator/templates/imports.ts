@@ -6,9 +6,13 @@ import { CallOverrides, CallOverridesPayable, NearContract, NearContractBase } f
 };
 
 export const generateIndexFile = (contractFileNames: string[]) => {
-  return contractFileNames
+  const imports =  contractFileNames
     .map((contract) => {
-      return `export * from './${contract}';`;
+      return (`import ${contract} from './${contract}';`);
     })
     .join('\n');
+
+  const exports = `export {${contractFileNames.join('\n')} }` 
+
+  return [imports, exports].join('\n');
 };

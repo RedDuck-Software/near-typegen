@@ -61,7 +61,7 @@ const _getContractTypeDefinition = ({
   viewFunctions: ViewFunctionDefinition[];
   callFunctions: CallFunctionDefinition[];
 }) => {
-  return `export class ${contractName} extends ${NearContractBase.name} {
+  return `class ${contractName} extends ${NearContractBase.name} {
 
 constructor(contractId: string, signerAccount: Account) {
   super(contractId, signerAccount);
@@ -91,8 +91,8 @@ ${
 };
 
 export const getContractTypeDefinition = (abi: NearContractAbi): ContractTypeDefinition => {
-  const preparedViewFunctions = abi.methods.view?.map(getViewFunctionDefinition) ?? [];
-  const preparedCallFunctions = abi.methods.call?.map(getCallFunctionDefinition) ?? [];
+  const preparedViewFunctions = abi.methods.view?.map(f => getViewFunctionDefinition(abi, f)) ?? [];
+  const preparedCallFunctions = abi.methods.call?.map(f=>getCallFunctionDefinition(abi, f)) ?? [];
 
   const contractName = abi.contractName;
 

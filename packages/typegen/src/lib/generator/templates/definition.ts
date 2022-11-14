@@ -26,6 +26,7 @@ export const getFullDefinitionFromAbi = (abi: NearContractAbi) => {
   const contractDef = getContractTypeDefinition(abi);
   const typesSection = _getTypesSection(contractDef);
   const importsSection = getImportsForDefinition();
-
-  return [importsSection, typesSection, contractDef.contract].join('\n\n');
+  const defaultExport = `export default ${abi.contractName};`;
+  
+  return [importsSection, typesSection, contractDef.contract, [defaultExport]].join('\n\n');
 };

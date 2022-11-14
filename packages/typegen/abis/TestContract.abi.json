@@ -17,13 +17,13 @@
                         "val1": {
                             "isArray": false,
                             "isOptional": false,
-                            "type": "string",
+                            "type": "unknown",
                             "name": "val1"
                         },
                         "val2": {
                             "isArray": false,
                             "isOptional": false,
-                            "type": "number",
+                            "type": "unknown",
                             "name": "val2"
                         }
                     }
@@ -40,7 +40,7 @@
                         "a": {
                             "isArray": false,
                             "isOptional": false,
-                            "type": "string",
+                            "type": "unknown",
                             "name": "a"
                         }
                     }
@@ -56,7 +56,7 @@
                         "a": {
                             "isArray": false,
                             "isOptional": false,
-                            "type": "string",
+                            "type": "unknown",
                             "name": "a"
                         }
                     }
@@ -67,10 +67,48 @@
                         "r": {
                             "isArray": false,
                             "isOptional": false,
-                            "type": "number",
+                            "type": "unknown",
                             "name": "r"
                         }
                     }
+                }
+            },
+            {
+                "name": "test_view_with_class",
+                "returnType": {
+                    "isArray": true,
+                    "type": {
+                        "testField": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "unknown",
+                            "name": "testField"
+                        },
+                        "approved_account_ids": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "unknown",
+                            "name": "approved_account_ids"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "test_view_with_primitive_return",
+                "returnType": {
+                    "isArray": false,
+                    "isOptional": false,
+                    "type": "string",
+                    "name": "return"
+                }
+            },
+            {
+                "name": "test_view_with_primitive_return_arr",
+                "returnType": {
+                    "isArray": true,
+                    "isOptional": false,
+                    "type": "string",
+                    "name": "return"
                 }
             }
         ]
