@@ -160,7 +160,13 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
   return {
     isArray,
     type: properties.reduce((prev, curr) => {
-      let type: Type<ts.Type> = curr.getValueDeclarationOrThrow().getType();
+      let type: Type<ts.Type>;
+
+      try{
+        type = curr.getValueDeclarationOrThrow().getType();
+      }catch {
+        type = curr.getDeclaredType();
+      }
 
       const isArray = type.isArray();
       const isOptional = curr.isOptional();

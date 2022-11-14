@@ -75,6 +75,11 @@ export class TestContract {
 
   @view({})
   test_view_with_primitive_input(t: string) {
-    
+    // eslint-disable @typescript-eslint/no-empty-function
+  }
+
+  @view({})
+  test_view_with_unknown_type({t}) {
+    // eslint-disable @typescript-eslint/no-empty-function
   }
 }

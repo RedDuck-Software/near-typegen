@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/typegen",
   "author": "RedDuck Software",
-  "version": "0.0.4-dev",
+  "version": "0.0.5-dev",
   "types": "dist/index.d.ts",
   "description": "",
   "main": "dist/index.js",
@@ -16,7 +16,7 @@
     "start": "ts-node ./src/main.ts",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint ./src/ --ext .ts",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint"
   },
