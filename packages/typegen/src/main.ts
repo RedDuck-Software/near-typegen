@@ -2,10 +2,11 @@
 import { Command } from 'commander';
 import { DEFAULT_ABIS_PATH, DEFAULT_OUTPUT_PATH } from './constants';
 import generator from './lib/generator';
+import { version } from '../package.json';
 
 const program = new Command();
 
-program.name('Near TypeChain utility').description('Near TypeChain utility').version('0.0.1-dev');
+program.name('Near TypeChain utility').description('Near TypeChain utility').version(version);
 
 program
   .description('Generates Typescript entities from a given contract ABIs')
