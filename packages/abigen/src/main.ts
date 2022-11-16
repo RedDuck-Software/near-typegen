@@ -5,7 +5,7 @@ import { DEFAULT_CONTRACTS_PATH, DEFAULT_OUTPUT_ABIS_PATH } from './constants';
 
 const program = new Command();
 
-program.name('NEAR abi-gen utility').description('NEAR abi-gen utility')
+program.name('NEAR abi-gen utility').description('NEAR abi-gen utility');
 
 program
   .description('Generates ABIs from a given NEAR smart contracts written in TypeScript')
@@ -17,4 +17,3 @@ program
   });
 
 program.parse(process.argv);
-

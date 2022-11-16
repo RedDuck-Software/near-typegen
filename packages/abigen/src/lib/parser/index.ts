@@ -9,7 +9,16 @@ import {
 } from '@neargen-js/core';
 import { writeFile } from '@neargen-js/core';
 import path from 'path';
-import { ClassDeclaration, MethodDeclarationStructure, OptionalKind, Project, SourceFile, Symbol, ts, Type } from 'ts-morph';
+import {
+  ClassDeclaration,
+  MethodDeclarationStructure,
+  OptionalKind,
+  Project,
+  SourceFile,
+  Symbol,
+  ts,
+  Type,
+} from 'ts-morph';
 
 const stringTypeToObject = <TReturn extends object = object>(strObj: string) => {
   return new Function('return ' + strObj + ';')() as TReturn;
@@ -55,7 +64,7 @@ const parseNearFunctionCall = (
         isPayable,
         isPrivate,
         isInitializer,
-        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }),) : undefined,
+        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr })) : undefined,
       };
     }) ?? []
   );
@@ -75,7 +84,7 @@ const parseNearFunctionView = (
 
       return {
         name: fnName,
-        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr }),) : undefined,
+        args: fnArgs?.length ? fnArgs.reduce((prev, curr) => ({ ...prev, ...curr })) : undefined,
         returnType: toObjectType(returnType, file),
       };
     }) ?? []
@@ -100,7 +109,9 @@ const getAbisFromFile = (file: SourceFile) => {
 
       const callMethodsParsed = parseNearFunctionCall(callMethods, classDeclaration, file);
       const viewMethodsParsed = parseNearFunctionView(viewMethods, classDeclaration, file);
-      const initializerParsed = initializerMethod ? parseNearFunctionCall([initializerMethod], classDeclaration, file, true)[0] : undefined;
+      const initializerParsed = initializerMethod
+        ? parseNearFunctionCall([initializerMethod], classDeclaration, file, true)[0]
+        : undefined;
 
       const abi = {
         contractName: name,
@@ -116,12 +127,12 @@ const getAbisFromFile = (file: SourceFile) => {
 };
 
 const getPrimitiveType = (type: Type) => {
-  let t = (type.getText()).trim();
+  let t = type.getText().trim();
   if (t === 'bigint') t = 'string';
   if (t === 'any') t = 'unknown';
   if (!isPrimitive(t as PrimitiveType)) t = 'unknown';
   return t as PrimitiveType;
-}
+};
 
 const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFunctionType => {
   let type: Type<ts.Type>;
@@ -152,7 +163,11 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
   let properties: Symbol[] = [];
 
   if (type.isClass()) {
-    properties = file?.getClass(type.getSymbolOrThrow().getName())?.getProperties().map(v => v.getSymbolOrThrow()) ?? []
+    properties =
+      file
+        ?.getClass(type.getSymbolOrThrow().getName())
+        ?.getProperties()
+        .map((v) => v.getSymbolOrThrow()) ?? [];
   } else {
     properties = type.getProperties();
   }
@@ -162,15 +177,15 @@ const toObjectType = (_type: string | Type<ts.Type>, file?: SourceFile): NearFun
     type: properties.reduce((prev, curr) => {
       let type: Type<ts.Type>;
 
-      try{
+      try {
         type = curr.getValueDeclarationOrThrow().getType();
-      }catch {
+      } catch {
         type = curr.getDeclaredType();
       }
 
       const isArray = type.isArray();
       const isOptional = curr.isOptional();
-      
+
       const name = curr.getName();
 
       if (isArray) {

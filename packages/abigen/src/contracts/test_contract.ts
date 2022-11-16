@@ -11,24 +11,20 @@ export type SomeType = {
 };
 
 export class SomeClass {
-  public testField:string
+  public testField: string;
   approved_account_ids: { [accountId: string]: number } = {};
 
-  constructor(
-    testField: string
-  ){
-    this.testField = testField
+  constructor(testField: string) {
+    this.testField = testField;
   }
 }
 
 @NearBindgen({})
 export class TestContract {
-  
   @initialize({})
   test_initializer_method({ a }: { a: string }): { r: number } {
     return { r: 0 };
   }
-
 
   @call({ privateFunction: true })
   test_call_method_private1() {
@@ -66,7 +62,6 @@ export class TestContract {
   test_view_with_primitive_return(): string {
     return '';
   }
-
 
   @view({})
   test_view_with_primitive_return_arr(): string[] {
