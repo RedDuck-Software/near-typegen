@@ -27,5 +27,9 @@
     "lint": "eslint . --ext .ts",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint"
+  },
+  "dependencies": {
+    "@near-wallet-selector/core": "^7.2.0",
+    "near-api-js-1-1-0": "npm:near-api-js@^1.1.0"
   }
 }

@@ -1,7 +1,7 @@
 import { BN } from 'bn.js';
 import { Account, Contract, Near } from 'near-api-js';
 import { FinalExecutionOutcome } from 'near-api-js/lib/providers';
-
+import { IAccount } from "@neargen-js/core"
 export type NearBigint = number | string | bigint;
 
 export class CallOverrides {
@@ -14,9 +14,9 @@ export class CallOverridesPayable {
 
 export abstract class NearContractBase {
   private _contractId: string;
-  private _signer?: Account;
+  private _signer: IAccount;
 
-  constructor(contractId: string, signerAccount?: Account) {
+  constructor(contractId: string, signerAccount: IAccount) {
     this._contractId = contractId;
     this._signer = signerAccount;
   }
@@ -40,8 +40,6 @@ export abstract class NearContractBase {
     args?: TArgs;
     overrides?: CallOverrides & CallOverridesPayable;
   }) {
-    if (!this._signer) throw new Error('Signer is not defined');
-
     return this._signer.functionCall({
       contractId: this.contractId,
       methodName,
