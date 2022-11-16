@@ -32,7 +32,7 @@ const _getViewFunctions = (functions: ViewFunctionDefinition[]) => {
       })
 }`;
     })
-    .join('\n');
+    .join('\n\n');
 };
 
 const _getCallFunctions = (functions: CallFunctionDefinition[], isPrivate: boolean) => {
@@ -47,7 +47,7 @@ const _getCallFunctions = (functions: CallFunctionDefinition[], isPrivate: boole
       })
   }${isPrivate ? ',' : ''}`;
     })
-    .join('\n');
+    .join('\n\n');
 };
 
 const _getContractTypeDefinition = ({
