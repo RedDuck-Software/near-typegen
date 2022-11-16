@@ -63,11 +63,11 @@ const _getContractTypeDefinition = ({
 }) => {
   return `class ${contractName} extends ${NearContractBase.name} {
 
-constructor(contractId: string, signerAccount: Account) {
+constructor(contractId: string, signerAccount: IAccount) {
   super(contractId, signerAccount);
 }
 
-public connect(account: Account): ${contractName} {
+public connect(account: IAccount): ${contractName} {
   return new ${contractName}(this.contractId, account);
 }
   

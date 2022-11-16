@@ -7,6 +7,7 @@ import { CodeResult } from "near-api-js-1-1-0/lib/providers/provider";
 const MAX_TX_TGAS = '300000000000000';
 
 export interface IAccount {
+    accountId: string,
     functionCall({ contractId, methodName, args, gas, attachedDeposit, walletMeta, walletCallbackUrl, stringify, jsContract }: ChangeFunctionCallOptions): Promise<FinalExecutionOutcome>;
     viewFunctionV2({ contractId, methodName, args, parse, stringify, jsContract, blockQuery }: ViewFunctionCallOptions): Promise<any>;
 }
@@ -17,6 +18,10 @@ export class WalletAccount implements IAccount {
         public rpcProvider: JsonRpcProvider,
         public wallet?: Wallet,
     ) {
+    }
+
+    public get accountId(): string {
+        return this.account.accountId
     }
 
     public async functionCall({

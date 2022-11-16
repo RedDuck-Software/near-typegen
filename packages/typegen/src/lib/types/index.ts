@@ -29,9 +29,9 @@ export abstract class NearContractBase {
     return this._signer;
   }
 
-  public abstract connect(account: Account): NearContractBase;
+  public abstract connect(account: IAccount): NearContractBase;
 
-  protected functionCall<TArgs extends object = object>({
+  protected functionCall<TArgs extends unknown = object>({
     methodName,
     args,
     overrides = {},
@@ -49,7 +49,7 @@ export abstract class NearContractBase {
     });
   }
 
-  protected functionView<TArgs extends object = object, TReturn = unknown>({
+  protected functionView<TArgs extends unknown = object, TReturn = unknown>({
     methodName,
     args,
   }: {

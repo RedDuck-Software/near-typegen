@@ -113,6 +113,21 @@
                     "type": "string",
                     "name": "return"
                 }
+            },
+            {
+                "name": "test_view_with_primitive_input",
+                "args": {
+                    "isArray": false,
+                    "isOptional": false,
+                    "type": "string",
+                    "name": "return"
+                },
+                "returnType": {
+                    "isArray": false,
+                    "isOptional": false,
+                    "type": "void",
+                    "name": "return"
+                }
             }
         ]
     }
