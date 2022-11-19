@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/abigen",
   "author": "RedDuck Software",
-  "version": "0.0.11-dev",
+  "version": "0.0.14-dev",
   "types": "dist/index.d.ts",
   "description": "Abi generator package for NEAR contracts written in TypeScript",
   "main": "dist/index.js",
@@ -28,8 +28,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --ext .ts",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint"
+    "prepublishOnly": "npm run build && npm run test && npm run lint"
   },
   "dependencies": {
     "commander": "^9.4.1",

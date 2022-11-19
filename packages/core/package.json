@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/core",
   "author": "RedDuck Software",
-  "version": "0.0.4-dev",
+  "version": "0.0.5-dev",
   "types": "dist/index.d.ts",
   "description": "Base types and utilities for neargen-js project",
   "main": "dist/index.js",
@@ -25,8 +25,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --ext .ts",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint"
+    "prepublishOnly": "npm run build && npm test && npm run lint"
   },
   "dependencies": {
     "@near-wallet-selector/core": "^7.2.0",

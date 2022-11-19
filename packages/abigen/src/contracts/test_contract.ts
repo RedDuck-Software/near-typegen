@@ -19,8 +19,8 @@ export class SomeClass {
 }
 
 class NestedClass {
-  public field1: string = '';
-  public field2: string = '';
+  public field1 = '';
+  public field2 = '';
 }
 export class SomeClassWithNesting {
   public testField: NestedClass;
@@ -49,6 +49,7 @@ export class TestContract {
   }
 
   @call({ payableFunction: true })
+  // eslint-disable-next-line no-empty-pattern
   test_call_payable_with_implicit_return({}: { val1: string; val2: number }) {
     return {
       someVal: '',
