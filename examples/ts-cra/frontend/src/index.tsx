@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Buffer } from 'buffer';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "./globals.scss";
+
+import { Wallet } from './near-wallet';
+
+
+window.Buffer = window.Buffer || Buffer;
+
+const wallet = new Wallet();
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App wallet={wallet} />
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
