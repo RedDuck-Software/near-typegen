@@ -6,7 +6,7 @@ import {
   NearFunctionType,
   NearFunctionView,
   PrimitiveType,
-} from '@neargen-js/core';
+} from '@neargen-js/types';
 import camelCase from 'uppercamelcase';
 import { CallOverrides, CallOverridesPayable, NearContract } from '@neargen-js/types';
 

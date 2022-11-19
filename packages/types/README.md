@@ -1,6 +1,6 @@
-# @neargen-js/core
+# @neargen-js/types
 
-Core package for ```@neargen-js/core``` and ```@neargen-js/typegen```
+Types for ```@neargen-js/core```, ```@neargen-js/abigen``` and ```@neargen-js/typegen```
 
 ## Abi specification
 

@@ -1,7 +1,3 @@
 # @neargen-js/core
 
-Core package for ```@neargen-js/core``` and ```@neargen-js/typegen```
-
-## Abi specification
-
-todo
+Core package for ```@neargen-js/abigen``` and ```@neargen-js/typegen```
