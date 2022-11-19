@@ -1,5 +1,5 @@
 import { FinalExecutionOutcome } from 'near-api-js/lib/providers';
-import { NearContractAbi, CallOverrides, CallOverridesPayable, NearContractBase } from '@neargen-js/types';
+import { NearContractAbi, CallOverrides, CallOverridesPayable, NearContractBase } from '@neargen-js/core';
 import {
   CallFunctionDefinition,
   FunctionDefinitionBase,

@@ -1,7 +1,7 @@
 import { BN } from 'bn.js';
-import { Account, Contract, Near, } from 'near-api-js';
-import { FinalExecutionOutcome, } from 'near-api-js/lib/providers';
-import { ViewFunctionCallOptions, ChangeFunctionCallOptions } from 'near-api-js/lib/account';
+import { Account, Contract, Near, } from 'near-api-js-1-1-0';
+import { FinalExecutionOutcome, } from 'near-api-js-1-1-0/lib/providers';
+import { ViewFunctionCallOptions, ChangeFunctionCallOptions } from 'near-api-js-1-1-0/lib/account';
 
 export type NearBigint = number | string | bigint;
 

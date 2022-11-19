@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/core",
   "author": "RedDuck Software",
-  "version": "0.0.6-dev",
+  "version": "0.0.7-dev",
   "types": "dist/index.d.ts",
   "description": "Base types and utilities for neargen-js project",
   "main": "dist/index.js",
@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "@near-wallet-selector/core": "^7.2.0",
-    "near-api-js-1-1-0": "npm:near-api-js@^1.1.0",
-    "@neargen-js/types": "*"
+    "near-api-js-1-1-0": "npm:near-api-js@^1.1.0"
   }
 }

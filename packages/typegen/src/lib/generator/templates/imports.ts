@@ -1,6 +1,6 @@
 export const getImportsForDefinition = () => {
   return `import { FinalExecutionOutcome } from 'near-api-js/lib/providers';
-import { IAccount, CallOverrides, CallOverridesPayable, NearContractBase } from '@neargen-js/types';`;
+import { IAccount, CallOverrides, CallOverridesPayable, NearContractBase } from '@neargen-js/core';`;
 };
 
 export const generateIndexFile = (contractFileNames: string[]) => {

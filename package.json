@@ -22,9 +22,9 @@
     "build:core" : "cd packages/core && npm run build",
     "format:core" : "cd packages/core && npm run format",
     "lint:core" : "cd packages/core && npm run lint",
-    "build:types" : "cd packages/types && npm run build",
-    "format:types" : "cd packages/types && npm run format",
-    "lint:types" : "cd packages/types && npm run lint"
+    "build:utils" : "cd packages/utils && npm run build",
+    "format:utils" : "cd packages/utils && npm run format",
+    "lint:utils" : "cd packages/utils && npm run lint"
   },
   "repository": {
     "type": "git",

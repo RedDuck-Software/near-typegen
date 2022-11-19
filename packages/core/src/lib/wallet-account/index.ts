@@ -3,7 +3,7 @@ import { JsonRpcProvider } from "near-api-js/lib/providers"
 import { ChangeFunctionCallOptions, ViewFunctionCallOptions } from "near-api-js-1-1-0/lib/account";
 import { FinalExecutionOutcome } from "near-api-js-1-1-0/lib/providers";
 import { CodeResult } from "near-api-js-1-1-0/lib/providers/provider";
-import { IAccount } from "@neargen-js/types";
+import { IAccount } from "../gen-types";
 
 const MAX_TX_TGAS = '300000000000000';
 

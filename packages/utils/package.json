@@ -1,17 +1,18 @@
 {
-  "name": "@neargen-js/types",
+  "name": "@neargen-js/utils",
   "author": "RedDuck Software",
   "version": "0.0.1-dev",
   "types": "dist/index.d.ts",
-  "description": "Base types for neargen-js project",
+  "description": "Base utilities for neargen-js project",
   "main": "dist/index.js",
   "keywords": [
     "near",
     "types",
+    "core",
     "near-gen"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/types",
+  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/utils",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
@@ -27,9 +28,11 @@
     "prepublishOnly": "npm run build && npm test && npm run lint"
   },
   "dependencies": {
-    "near-api-js": "^1.1.0"
+    "glob": "^8.0.3",
+    "prettier": "^2.7.1"
   },
   "devDependencies": {
-    "@types/bn.js": "^5.1.1"
+    "@types/glob": "^8.0.0",
+    "@types/prettier": "^2.7.1"
   }
 }

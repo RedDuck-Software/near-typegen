@@ -1,4 +1,4 @@
-import { NearContractAbi } from '@neargen-js/types';
+import { NearContractAbi } from '@neargen-js/core';
 import { ContractTypeDefinition, getContractTypeDefinition } from './contract';
 import { FunctionDefinitionBase, ViewFunctionDefinition } from './functions';
 import { getImportsForDefinition } from './imports';

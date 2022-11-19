@@ -6,8 +6,9 @@ import {
   NearFunctionType,
   NearFunctionView,
   PrimitiveType,
-} from '@neargen-js/types';
-import { writeFile } from '@neargen-js/core';
+} from '@neargen-js/core';
+
+import { writeFile } from '@neargen-js/utils';
 import path from 'path';
 import {
   ClassDeclaration,

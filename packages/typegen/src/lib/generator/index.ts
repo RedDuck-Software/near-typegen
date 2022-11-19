@@ -1,6 +1,6 @@
 import path from 'path';
-import { parseAbi } from '@neargen-js/types';
-import { getFilePathesByGlob, prettifyCode, readFile, writeFile } from '@neargen-js/core';
+import { parseAbi } from '@neargen-js/core';
+import { getFilePathesByGlob, prettifyCode, readFile, writeFile } from '@neargen-js/utils';
 import { getFullDefinitionFromAbi } from './templates/definition';
 import { generateIndexFile } from './templates/imports';
 
