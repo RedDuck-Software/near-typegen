@@ -6,9 +6,10 @@ import {
   NearFunctionType,
   NearFunctionView,
   PrimitiveType,
+  CallOverrides, 
+  CallOverridesPayable
 } from '@neargen-js/core';
 import camelCase from 'uppercamelcase';
-import { CallOverrides, CallOverridesPayable, NearContract } from '../../types';
 
 type StringType = {
   isArray?: boolean; // TODO: temp solution, should add fully functional array type parsing

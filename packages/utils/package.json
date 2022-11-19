@@ -1,9 +1,9 @@
 {
-  "name": "@neargen-js/core",
+  "name": "@neargen-js/utils",
   "author": "RedDuck Software",
-  "version": "0.0.7-dev",
+  "version": "0.0.1-dev",
   "types": "dist/index.d.ts",
-  "description": "Base types and utilities for neargen-js project",
+  "description": "Base utilities for neargen-js project",
   "main": "dist/index.js",
   "keywords": [
     "near",
@@ -12,7 +12,7 @@
     "near-gen"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/core",
+  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/utils",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
@@ -28,7 +28,11 @@
     "prepublishOnly": "npm run build && npm test && npm run lint"
   },
   "dependencies": {
-    "@near-wallet-selector/core": "^7.2.0",
-    "near-api-js-1-1-0": "npm:near-api-js@^1.1.0"
+    "glob": "^8.0.3",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/prettier": "^2.7.1"
   }
 }

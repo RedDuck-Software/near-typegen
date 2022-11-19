@@ -21,7 +21,10 @@
     "lint:typegen" : "cd packages/typegen && npm run lint",
     "build:core" : "cd packages/core && npm run build",
     "format:core" : "cd packages/core && npm run format",
-    "lint:core" : "cd packages/core && npm run lint"
+    "lint:core" : "cd packages/core && npm run lint",
+    "build:utils" : "cd packages/utils && npm run build",
+    "format:utils" : "cd packages/utils && npm run format",
+    "lint:utils" : "cd packages/utils && npm run lint"
   },
   "repository": {
     "type": "git",

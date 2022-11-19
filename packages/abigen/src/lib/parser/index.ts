@@ -7,7 +7,8 @@ import {
   NearFunctionView,
   PrimitiveType,
 } from '@neargen-js/core';
-import { writeFile } from '@neargen-js/core';
+
+import { writeFile } from '@neargen-js/utils';
 import path from 'path';
 import {
   ClassDeclaration,

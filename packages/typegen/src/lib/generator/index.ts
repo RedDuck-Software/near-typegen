@@ -1,9 +1,7 @@
 import path from 'path';
 import { parseAbi } from '@neargen-js/core';
-import { getFilePathesByGlob, prettifyCode, readFile, writeFile } from '@neargen-js/core';
-import { getContractTypeDefinition } from './templates/contract';
+import { getFilePathesByGlob, prettifyCode, readFile, writeFile } from '@neargen-js/utils';
 import { getFullDefinitionFromAbi } from './templates/definition';
-import { getViewFunctionDefinition } from './templates/functions';
 import { generateIndexFile } from './templates/imports';
 
 type GenerateFromAbisParams = {

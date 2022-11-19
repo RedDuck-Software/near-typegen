@@ -1,6 +1,5 @@
 import { FinalExecutionOutcome } from 'near-api-js/lib/providers';
-import { NearContractAbi } from '@neargen-js/core';
-import { CallOverrides, CallOverridesPayable, NearContractBase } from '../../types';
+import { NearContractAbi, CallOverrides, CallOverridesPayable, NearContractBase } from '@neargen-js/core';
 import {
   CallFunctionDefinition,
   FunctionDefinitionBase,
@@ -39,7 +38,7 @@ const _getCallFunctions = (functions: CallFunctionDefinition[], isPrivate: boole
   return functions.filter(f=>f.isPrivate === isPrivate)
     .map((f) => {
       return `${isPrivate ? `${f.fnName}: async ${f.signature} => ` : `public async ${f.fnName}${f.signature}`}  {
-      ${isPrivate ? `assert(this.signer?.accountId === this.contractId, 'Signer is not a contract');` : ''}
+      ${isPrivate ? `if(this.signer?.accountId !== this.contractId) throw new Error('Signer is not a contract');` : ''}
       return this.functionCall<${f?.argsType?.name ?? 'object'}>({
           methodName: '${f.contractMethodName}',
           overrides,
