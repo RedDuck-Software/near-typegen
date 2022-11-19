@@ -1,7 +1,8 @@
 import { BN } from 'bn.js';
-import { Account, Contract, Near } from 'near-api-js';
-import { FinalExecutionOutcome } from 'near-api-js/lib/providers';
-import { IAccount } from "@neargen-js/core"
+import { Account, Contract, Near, } from 'near-api-js';
+import { FinalExecutionOutcome, } from 'near-api-js/lib/providers';
+import { ViewFunctionCallOptions, ChangeFunctionCallOptions } from 'near-api-js/lib/account';
+
 export type NearBigint = number | string | bigint;
 
 export class CallOverrides {
@@ -10,6 +11,12 @@ export class CallOverrides {
 
 export class CallOverridesPayable {
   attachedDeposit?: NearBigint;
+}
+
+export interface IAccount {
+  accountId: string,
+  functionCall({ contractId, methodName, args, gas, attachedDeposit, walletMeta, walletCallbackUrl, stringify, jsContract }: ChangeFunctionCallOptions): Promise<FinalExecutionOutcome>;
+  viewFunctionV2({ contractId, methodName, args, parse, stringify, jsContract, blockQuery }: ViewFunctionCallOptions): Promise<any>;
 }
 
 export abstract class NearContractBase {

@@ -42,7 +42,8 @@
     "near-api-js": "^1.1.0",
     "uppercamelcase": "^3.0.0",
     "prettier": "^2.7.1",
-    "@neargen-js/core": "*"
+    "@neargen-js/core": "*",
+    "@neargen-js/types": "*"
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.1",

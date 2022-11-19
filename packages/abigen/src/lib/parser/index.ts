@@ -6,7 +6,7 @@ import {
   NearFunctionType,
   NearFunctionView,
   PrimitiveType,
-} from '@neargen-js/core';
+} from '@neargen-js/types';
 import { writeFile } from '@neargen-js/core';
 import path from 'path';
 import {
