@@ -1,0 +1,34 @@
+{
+    "contractName": "HelloNear",
+    "methods": {
+        "call": [
+            {
+                "name": "set_greeting",
+                "isPayable": false,
+                "isPrivate": false,
+                "args": {
+                    "isArray": false,
+                    "type": {
+                        "message": {
+                            "isArray": false,
+                            "isOptional": false,
+                            "type": "string",
+                            "name": "message"
+                        }
+                    }
+                }
+            }
+        ],
+        "view": [
+            {
+                "name": "get_greeting",
+                "returnType": {
+                    "isArray": false,
+                    "isOptional": false,
+                    "type": "string",
+                    "name": "return"
+                }
+            }
+        ]
+    }
+}
