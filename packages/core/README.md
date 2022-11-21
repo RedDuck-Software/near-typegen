@@ -4,7 +4,7 @@ Core package for ```@neargen-js/abigen``` and ```@neargen-js/typegen```
 
 ## Contract ABI specification
 
-```
+```ts
 {
     contractName: string; // The name of the smart contract
     methods: { 
@@ -20,11 +20,12 @@ You can check more detailed abi type definitions [here](../core/src/lib/abi/inde
 ### Current limitations
 
 For now, contract methods can have only 1 object parameter. In other cases, abi might be generated incorrectly. Example: 
-```
 
-public some_method({ someValue }:{ someValue: string }) {...}
+```ts
+@call({})
+public some_method({ someValue }:{ someValue: string }) {/*...*/}
 
-But NOT: 
-public some_method(someValue: string) {...}
-
+/* But NOT: */
+@call({})
+public some_method(someValue: string) {/*...*/}
 ```

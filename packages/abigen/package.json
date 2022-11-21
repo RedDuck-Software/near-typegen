@@ -15,7 +15,7 @@
     "types"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/abigen",
+  "homepage": "https://github.com/RedDuck-Software/near-typegen/tree/main/packages/abigen",
   "files": [
     "dist/**/*"
   ],
@@ -44,6 +44,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
+    "url": "git+https://github.com/RedDuck-Software/near-typegen.git"
   }
 }

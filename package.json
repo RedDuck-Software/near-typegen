@@ -28,14 +28,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
+    "url": "git+https://github.com/RedDuck-Software/near-typegen.git"
   },
   "author": "RedDuck Software",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RedDuck-Software/neargen-js/issues"
+    "url": "https://github.com/RedDuck-Software/near-typegen/issues"
   },
-  "homepage": "https://github.com/RedDuck-Software/neargen-js#readme",
+  "homepage": "https://github.com/RedDuck-Software/near-typegen#readme",
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/prettier": "^2.7.1",

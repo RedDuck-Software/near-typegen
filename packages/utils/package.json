@@ -12,10 +12,10 @@
     "near-gen"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/utils",
+  "homepage": "https://github.com/RedDuck-Software/near-typegen/tree/main/packages/utils",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
+    "url": "git+https://github.com/RedDuck-Software/near-typegen.git"
   },
   "files": [
     "dist/**/*"
