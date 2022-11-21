@@ -28,14 +28,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
+    "url": "git+https://github.com/gymnasy55/neargen-js.git"
   },
-  "author": "RedDuck Software",
+  "author": "gymnasy55",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RedDuck-Software/neargen-js/issues"
+    "url": "https://github.com/gymnasy55/neargen-js/issues"
   },
-  "homepage": "https://github.com/RedDuck-Software/neargen-js#readme",
+  "homepage": "https://github.com/gymnasy55/neargen-js#readme",
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/prettier": "^2.7.1",

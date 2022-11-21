@@ -1,6 +1,6 @@
 {
   "name": "@neargen-js/utils",
-  "author": "RedDuck Software",
+  "author": "gymnasy55",
   "version": "0.0.1-dev",
   "types": "dist/index.d.ts",
   "description": "Base utilities for neargen-js project",
@@ -12,10 +12,10 @@
     "near-gen"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/RedDuck-Software/neargen-js/tree/main/packages/utils",
+  "homepage": "https://github.com/gymnasy55/neargen-js/tree/main/packages/utils",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RedDuck-Software/neargen-js.git"
+    "url": "git+https://github.com/gymnasy55/neargen-js.git"
   },
   "files": [
     "dist/**/*"
