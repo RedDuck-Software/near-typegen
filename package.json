@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "run-s build:*",
+    "build": "npm run build:utils && npm run build:core && npm run build:abigen && npm run build:typegen",
     "format": "run-s format:*",
     "lint": "run-s lint:*",
     "build:abigen" : "cd packages/abigen && npm run build",

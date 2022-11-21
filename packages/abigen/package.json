@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/abigen",
   "author": "RedDuck Software",
-  "version": "0.0.16-dev",
+  "version": "0.0.17-dev",
   "types": "dist/index.d.ts",
   "description": "Abi generator package for NEAR contracts written in TypeScript",
   "main": "dist/index.js",

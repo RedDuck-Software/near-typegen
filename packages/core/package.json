@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/core",
   "author": "RedDuck Software",
-  "version": "0.0.7-dev",
+  "version": "0.0.8-dev",
   "types": "dist/index.d.ts",
   "description": "Base types and utilities for neargen-js project",
   "main": "dist/index.js",

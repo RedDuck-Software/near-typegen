@@ -1,7 +1,7 @@
 {
   "name": "@neargen-js/typegen",
   "author": "RedDuck Software",
-  "version": "0.0.11-dev",
+  "version": "0.0.12-dev",
   "types": "dist/index.d.ts",
   "description": "TypeScript Type definitions generator package for NEAR smart contracts",
   "main": "dist/index.js",
