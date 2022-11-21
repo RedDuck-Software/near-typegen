@@ -2,7 +2,7 @@ import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
 import { HelloNear } from "./contracts";
 import type { Wallet } from "./near-wallet";
 import { EducationalText, SignInPrompt, SignOutButton } from "./components";
-import { HELLO_NEAR_ADDRESS } from "./constants";
+import { CONTRACT_ADDRESS } from "./constants";
 import { WalletAccount } from '@neargen-js/core';
 
 interface AppProps {
@@ -20,7 +20,7 @@ const App: FC<AppProps> = ({ wallet }) => {
         wallet.startUp()
             .then(setIsSignedIn)
             .then(() => {
-                new HelloNear(HELLO_NEAR_ADDRESS, new WalletAccount(wallet.account, wallet.getJsonRpcProvider(), wallet.wallet)).get_greeting()
+                new HelloNear(CONTRACT_ADDRESS, new WalletAccount(wallet.account, wallet.getJsonRpcProvider(), wallet.wallet)).get_greeting()
                     .then(setValueFromBlockchain)
                     .catch(alert)
                     .finally(() => {
@@ -39,7 +39,7 @@ const App: FC<AppProps> = ({ wallet }) => {
         e.preventDefault();
         setUiPleaseWait(true);
         const greetingInput = ref?.current?.value || "";
-        const helloNear = new HelloNear(HELLO_NEAR_ADDRESS, new WalletAccount(wallet.account, wallet.getJsonRpcProvider(), wallet.wallet));
+        const helloNear = new HelloNear(CONTRACT_ADDRESS, new WalletAccount(wallet.account, wallet.getJsonRpcProvider(), wallet.wallet));
         helloNear.set_greeting({ message: greetingInput })
             .then(() => helloNear.get_greeting())
             .then(setValueFromBlockchain)
